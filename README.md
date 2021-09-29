@@ -1,2 +1,7 @@
 # STI_Project_1
-Repositry containing files of a webapp developped under STI course at HEIG.
+
+A simple chat app using : 
+  - PHP    : web language
+  - SQLite : database engine 
+  - nginx  : proxy server.
+
