@@ -22,14 +22,19 @@
     /**************************************
     * Create tables                       *
     **************************************/
- 
+    // Create table users
+      $file_db->exec("CREATE TABLE IF NOT EXISTS  users (
+                id INTEGER PRIMARY KEY,
+                username TEXT,
+                password TEXT)");
     // Create table messages
     $file_db->exec("CREATE TABLE IF NOT EXISTS messages (
                     id INTEGER PRIMARY KEY, 
                     title TEXT, 
                     message TEXT, 
-                    time TEXT)"); 
- 
+                    time TEXT,
+                    sender users )");
+
     /**************************************
     * Set initial data                    *
     **************************************/
