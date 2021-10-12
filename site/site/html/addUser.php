@@ -19,7 +19,7 @@
             <?php
 
             require "Db.php";
-
+            session_start();
             $email = $_POST['email'];
             $password =$_POST['password'];
             $admin = 0;
@@ -37,7 +37,9 @@
         </form>
     <div><?php if ($res){
                 echo "User added successfully";
-            } ?></div>
+            } ?>
+    </div>
+        <button> <a href="getAllUsers.php">Back</a> </button>
     </body>
 </html>
 

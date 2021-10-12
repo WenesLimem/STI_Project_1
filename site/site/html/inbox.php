@@ -1,30 +1,57 @@
-<?php
-    require "Db.php";
-    session_start();
-
-
-    $username = $_SESSION['user_name'];
-      //  var_dump($_SESSION['username']);
-    $sql = $file_db->query("SELECT DISTINCT * from messages 
-                                      WHERE sender_email='$username' 
-                                      OR receiver_email='$username' 
-                                      ORDER BY id
-                                      ");
-    //var_dump($sql);
-    echo " Chats: <br/>";
-
-    foreach($sql as $row) {
-        echo "       |" . $row['receiver_email'] . "|" . $row['object'] . "|" . $row['content'] . ".|" . $row['datestamp'] . "|" . $row['status'] . "</br>";
-    }
-    ?>
+<!DOCTYPE html>
 <html>
-<head> Inbox </head>
+<head>
+    <meta charset="utf-8">
+    <title>Inbox</title>
+</head>
 <body>
-<div>
-    <a href="addMessage.php">Write a new message </a>
-</div>
+<table border="1">
+    <thead>
+    <th>ID</th>
+    <th>Sender</th>
+    <th>Object</th>
+    <th>Content</th>
+    <th>Date</th>
+    <th>Status</th>
+    <th>Actions</th>
+    </thead>
+    <tbody>
+    <?php
+    //include our connection
+    include 'Db.php';
+    session_start();
+    $user=$_SESSION['user_name'];
+    echo $user;
+
+
+    //query from the table that we create
+    $sql = "SELECT * FROM messages WHERE receiver_email='$user'";
+    $query = $file_db->query($sql);
+
+    foreach($query as $row){
+        echo "
+					<tr>
+						<td>".$row['id']."</td>
+						<td>".$row['sender_email']."</td>
+						<td>".$row['object']."</td>
+						<td>".$row['content']."</td>
+						<td>".$row['datestamp']."</td>
+						<td>".$row['status']."</td>
+						<td>
+							<a href='addMessage.php?email=".$row['sender_email']."'>Reply</a>
+							<a href='deleteMessage.php?id=".$row['id']."'>Delete</a>
+							
+						</td>
+					</tr>
+				";
+    }
+
+    ?>
+    </tbody>
+</table>
 </body>
-<div>
-    <a href="addMessage.php">Write a new message </a>
-</div>
+<button>
+    <a href="index.php">Home</a>
+</button>
 </html>
+

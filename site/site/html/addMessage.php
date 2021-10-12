@@ -1,3 +1,4 @@
+
 <html lang="en">
     <head><title>Send message</title></head>
     <body>
@@ -14,7 +15,7 @@
              </div>
             <div>
                 <label> Content:
-                     <input type="text" name="content" placeholder="hope this shit finds you well !">
+                     <input size="30" type="text" name="content" placeholder="hope it finds you well !">
                 </label>
             </div>
             <div>
@@ -37,14 +38,18 @@
 
 
             } else {
-                header('Location: login.php' );
+                header('Location: loginV.php' );
             }
 
             ?>
         </form>
     <div><?php if ($res){
-                echo "Message sent ! ";
-                header("location index.php");
+
+                header("location pass_through.php");
             } ?></div>
     </body>
+    <button>
+        <a href="index.php">Home</a>
+    </button>
+
 </html>
