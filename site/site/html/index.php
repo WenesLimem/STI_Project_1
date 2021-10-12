@@ -12,6 +12,7 @@ session_start();
     <body>
         <div>
             <?php echo "Welcome " . $_SESSION["user_name"] . "<br/>"; ?>
+
         </div>
         <div>
         </div>

@@ -14,9 +14,9 @@
                  </label>
              </div>
             <div>
-                <label> Content:
-                     <input size="30" type="text" name="content" placeholder="hope it finds you well !">
-                </label>
+                <label> Content:</label>
+                     <textarea type="text" name="content" placeholder="hope it finds you well !"></textarea>
+
             </div>
             <div>
                 <button type="submit" > Send </button>

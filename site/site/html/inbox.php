@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Inbox</title>
+    <h1>Chatbox</h1>
 </head>
 <body>
 <table border="1">
