@@ -26,9 +26,13 @@ session_start();
                                     <p></p>
                                     <button><a href="addMessage.php">Write a new message</a></button>
                                     <p></p>
+                                        <button>
+                                            <a href="changePass.php">Change Password</a>
+                                        </button>
+                                        <p></p>
                                 </div>
 </body>
-<button><a href='logout.php'>Log out</a></button>
+<button><a href='logout.php'>Log out</a></button>                                    <div class="white-button">
 
 
 <?php include('end.php'); ?>
