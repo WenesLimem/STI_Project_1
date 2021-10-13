@@ -26,12 +26,18 @@
 
                                     ?>
 
-                                    <input type="text" id="password" name="password" placeholder="new pass"/>
+                                    <input type="password" id="password" name="password" placeholder="new pass"/>
                                 </p>
                                 <p><input type="radio" name="admin" value ="1">Upgrade to admin</p>
-                                <p><input type="radio" name="normaluser" value ="0">Downgrade to normal user</p>
+                                <p><input type="radio" name="inactif" value ="0">Inactif</p>
                                 <input type="submit" name="save" value="Save">
                             </form>
+                            <div class="white-button">
+                                <p></p>
+                                <button>
+                                    <a href="index.php">Home</a>
+                                </button>
+                            </div>
 
                             <?php
                             if(isset($_POST['save'])){
@@ -39,17 +45,18 @@
                                 $password = $_POST['password'];
 
                                 echo $password;
-                                if (isset($_POST['admin']) or isset($_POST['normaluser'])){
+                                if (isset($_POST['admin']) or isset($_POST['inactif'])){
                                     $ad = $_POST['admin'];
-                                    $nu = $_POST['normaluser'];
+                                    $inactif = $_POST['inactif'];
+                                    if ($password){
+                                        $sql1 = "UPDATE users SET password='$password' WHERE email='$user'";
+                                    }
                                     if ($ad){
-                                        $sql = "UPDATE users SET password='$password',admin='$ad' WHERE email='$user'";
-                                    }else {
-                                        $sql = "UPDATE users SET password='$password',admin='$nu' WHERE email='$user'";
+                                        $sql2 = "UPDATE users SET admin='$ad' WHERE email='$user'"; }
+                                    if($inactif) {
+                                        $sql3 = "UPDATE users SET active='$inactif' WHERE email='$user'";
                                     }
 
-                                }else {
-                                    $sql = "UPDATE users SET password='$password' WHERE email='$user'";
                                 }
                                 //update our table
 
@@ -57,5 +64,7 @@
 
                                 header('location: index.php');
                             }
+
                             ?>
 <?php include('end.php'); ?>
+

@@ -71,5 +71,5 @@
                             <button>
                                 <a href="index.php">Home</a>
                             </button>
-                            </form>
+                            </div>
 <?php include('end.php'); ?>

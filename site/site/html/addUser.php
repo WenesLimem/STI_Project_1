@@ -34,12 +34,6 @@
                                 $email = $_POST['email'];
                                 $password =$_POST['password'];
                                 $admin = 0;
-                                if (isset($_SESSION)){
-                                    if($_SESSION['admin']==1){
-                                        $admin = 1;
-                                    };
-                                }
-
                                 $active = 1;
 
 
@@ -52,7 +46,7 @@
                             </div>
                             <button> <a href="getAllUsers.php">Back</a> </button>
 </body>
-                            </form>
+                            </div>
                             <?php include('end.php'); ?>
 
 

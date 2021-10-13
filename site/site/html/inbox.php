@@ -6,8 +6,7 @@
                 <h2>Messages:</h2>
                 <div class="line-dec"></div>
                 <span>All messages are listed here:</span>
-            </div>
-            <div class="right-image-post">
+<div class="right-image-post">
                 <div class="row">
 
                     <div class="col-md-8">
@@ -57,7 +56,7 @@
                                 ?>
                                 </tbody>
                             </table>
-</body>
+</div>
 <div class="white-button">
     <p></p>
 <button>
