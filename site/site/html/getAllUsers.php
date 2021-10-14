@@ -17,13 +17,13 @@
                                 <thead>
                                 <th>email</th>
                                 <?php
-
+                                session_start();
                                 if ($_SESSION['admin']) {
                                     echo "
-          <th>password</th>
+          <th>Send a message</th>
+          <th>Password</th>
           <th>Administrator state</th>
-          <th>Active</th>
-          <th>Administrator state</th>
+          <th>Active status</th>   
           <th>Actions</th>"; ?>
                                     <?php
                                 }
@@ -50,7 +50,7 @@
 						<td><a href='addMessage.php?email=" . $row['email'] . "'>Send Message </a></td>";
 
                                     if ($_SESSION['admin']) {
-                                        echo "  <td></td>
+                                        echo "  
                             <td>" . $row['password'] . "</td>
                             <td>" . $row['admin'] . "</td>
 						    <td>" . $row['active'] . "</td>
