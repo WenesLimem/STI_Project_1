@@ -2,7 +2,7 @@
     <title>Send message</title>
 <?php include('afterTitle.php'); ?>
     <li><a href="#section1">Send message</a></li>
-<?php include('afterSection.php'); ?>
+<?php include('afterSection.php');  session_start()?>
                 <h2>Send Message:</h2>
                 <div class="line-dec"></div>
                 <span>You can write your message here: </span>
@@ -15,8 +15,8 @@
 
                             <form name="addMessage" method="POST">
                                 <div>
-                                    <label> TO: :
-                                        <input type="text" name="receiver" placeholder="TO:"/>
+                                    <label> TO :
+                                        <input type="text" name="receiver" placeholder="" value="<?php echo $_GET['email']?>" />
                                     </label>
                                 </div>
                                 <div>
@@ -42,10 +42,9 @@
                                     $sender= $_SESSION['user_name'];
                                     $object = $_POST['object'];
                                     $content = $_POST['content'];
-                                    $datestamp = '10:25';
+                                    $datestamp = date('Y-m-d');
                                     $status = 0;
-                                    $id=rand(1,1000);
-                                    $res = $file_db->exec("insert into messages values ($id,'$sender','$receiver','$object','$content','$datestamp',0)");
+                                    $res = $file_db->exec("insert into messages(receiver_email,sender_email,object,content,datestamp,status) values ('$receiver','$sender','$object','$content','$datestamp',0)");
 
 
                                 } else {

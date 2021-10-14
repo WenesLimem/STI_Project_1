@@ -15,12 +15,9 @@
 
                             <table border="1">
                                 <thead>
-                                <th>ID</th>
+                                <th>Date</th>
                                 <th>Sender</th>
                                 <th>Object</th>
-                                <th>Content</th>
-                                <th>Date</th>
-                                <th>Status</th>
                                 <th>Actions</th>
                                 </thead>
                                 <tbody>
@@ -33,19 +30,18 @@
 
 
                                 //query from the table that we create
-                                $sql = "SELECT * FROM messages WHERE receiver_email='$user'";
+                                $sql = "SELECT * FROM messages WHERE receiver_email='$user' ORDER BY datestamp DESCx§";
                                 $query = $file_db->query($sql);
 
                                 foreach($query as $row){
                                     echo "
 					<tr>
-						<td>".$row['id']."</td>
+				    	<td>".$row['datestamp']."</td>
 						<td>".$row['sender_email']."</td>
 						<td>".$row['object']."</td>
-						<td>".$row['content']."</td>
-						<td>".$row['datestamp']."</td>
-						<td>".$row['status']."</td>
+						  
 						<td>
+						    <a href='messageDetails.php?id=".$row['id']."'>Details</a>
 							<a href='addMessage.php?email=".$row['sender_email']."'>Reply</a>
 							<a href='deleteMessage.php?id=".$row['id']."'>Delete</a>
 							
