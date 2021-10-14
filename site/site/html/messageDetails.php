@@ -6,12 +6,16 @@ session_start();
                                     header("Location: loginV.php");
                                     exit();
                                 };?>
-
-<head>
+    <?php include('beforeTitle.php'); ?>
     <title>Message details</title>
-    <h1>Details & actions</h1>
-</head>
-<body>
+    <?php include('afterTitle.php'); ?>
+    <li><a href="#section1">Message details</a></li>
+    <?php include('afterSection.php'); ?>
+
+    <h2>Details & actions</h2>
+    <div class="line-dec"></div>
+    <span>Please, enter your password and email</span>
+
     <div>
         <?php
             require "Db.php";
@@ -55,5 +59,4 @@ session_start();
             <a href="index.php">Home</a>
         </button>
     </div>
-</body>
-</html>
+<?php include('end.php'); ?>
