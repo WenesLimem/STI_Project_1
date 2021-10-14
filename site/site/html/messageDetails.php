@@ -1,6 +1,12 @@
 <html>
 <?php
-session_start();?>
+session_start();
+                                if ($_SESSION["isConnected"]){
+                                } else {
+                                    header("Location: loginV.php");
+                                    exit();
+                                };?>
+
 <head>
     <title>Message details</title>
     <h1>Details & actions</h1>

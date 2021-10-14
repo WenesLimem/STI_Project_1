@@ -34,6 +34,11 @@
                                 </div>
                                 <?php
                                 session_start();
+                                if ($_SESSION["isConnected"]){
+                                } else {
+                                    header("Location: loginV.php");
+                                    exit();
+                                }
 
 
                                 require "Db.php";

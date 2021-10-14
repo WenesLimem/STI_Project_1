@@ -18,6 +18,11 @@
                                 <th>email</th>
                                 <?php
                                 session_start();
+                                if ($_SESSION["isConnected"]){
+                                } else {
+                                    header("Location: loginV.php");
+                                    exit();
+                                }
                                 if ($_SESSION['admin']) {
                                     echo "
           <th>Send a message</th>

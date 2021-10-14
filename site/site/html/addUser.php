@@ -32,6 +32,11 @@
 
                                 require "Db.php";
                                 session_start();
+                                if ($_SESSION["isConnected"]){
+                                } else {
+                                    header("Location: loginV.php");
+                                    exit();
+                                }
                                 $email = $_POST['email'];
                                 $password =$_POST['password'];
                                 $admin = 0;

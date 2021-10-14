@@ -3,6 +3,11 @@
 <?php
 require 'Db.php';
 session_start();
+if ($_SESSION["isConnected"]){
+} else {
+    header("Location: loginV.php");
+    exit();
+}
 ?>
 
 <?php include('beforeTitle.php'); ?>

@@ -65,8 +65,8 @@
 
 
             }else{
-            echo "<h1>connexion impossible</h1>
-            You are not connected :(";
+                    header("Location: loginV.php");
+                    exit();
             }
             ?>
 

@@ -20,6 +20,11 @@
                                     <?php
                                     require "Db.php";
                                     session_start();
+                                    if ($_SESSION["isConnected"]){
+                                    } else {
+                                        header("Location: loginV.php");
+                                        exit();
+                                    }
                                     $user = $_GET['email'];
                                     $rqt = $file_db->exec("SELECT * FROM users WHERE email='$user'");
 

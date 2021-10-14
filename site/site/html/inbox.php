@@ -25,12 +25,18 @@
                                 //include our connection
                                 include 'Db.php';
                                 session_start();
+
+                                if ($_SESSION["isConnected"]){
+                                } else {
+                                    header("Location: loginV.php");
+                                    exit();
+                                }
                                 $user=$_SESSION['user_name'];
                                 echo $user;
 
 
                                 //query from the table that we create
-                                $sql = "SELECT * FROM messages WHERE receiver_email='$user' ORDER BY datestamp DESCx§";
+                                $sql = "SELECT * FROM messages WHERE receiver_email='$user' ORDER BY datestamp DESC";
                                 $query = $file_db->query($sql);
 
                                 foreach($query as $row){
